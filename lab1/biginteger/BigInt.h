@@ -9,8 +9,9 @@
 
 class BigInt {
 
-private:
-  bool sign;
+public:
+  static const int kBase = 1000000000;
+  bool is_negative;
   std::vector<int> digits;
 public:
   BigInt();
