@@ -21,8 +21,9 @@ public:
   BigInt(std::string); // бросать исключение std::invalid_argument при ошибке
   BigInt(const BigInt &);
   ~BigInt();
-  bool IsSignNegative();
-  std::vector<int> GetDigits();
+  bool IsSignNegative() const;
+  std::vector<int> const & GetDigits() const;
 };
+std::ostream& operator<<(std::ostream& o, const BigInt& i);
 
 #endif // LAB1_BIGINT_H

@@ -3,7 +3,7 @@
 
 TEST(ConstructorTest, DefaultConstructor) {
   BigInt a;
-  EXPECT_EQ(a.IsSignNegative(), true);
+  EXPECT_EQ(a.IsSignNegative(), false);
   EXPECT_EQ(a.GetDigits()[0], 0);
 }
 TEST(ConstructorTest, IntConstructor) {
@@ -17,10 +17,10 @@ TEST(ConstructorTest, IntConstructor) {
   int value_greater_than_base = 2000000000;
   BigInt c(value_greater_than_base);
   EXPECT_EQ(c.IsSignNegative(), false);
-  EXPECT_EQ(c.GetDigits()[0], value_greater_than_base / 10);
-  EXPECT_EQ(c.GetDigits()[1], value_greater_than_base % 10);
+  EXPECT_EQ(c.GetDigits()[0], value_greater_than_base % kBase);
+  EXPECT_EQ(c.GetDigits()[1], value_greater_than_base / kBase);
   BigInt d(-value_greater_than_base);
   EXPECT_EQ(d.IsSignNegative(), true);
-  EXPECT_EQ(d.GetDigits()[0], value_greater_than_base / 10);
-  EXPECT_EQ(d.GetDigits()[1], value_greater_than_base % 10);
+  EXPECT_EQ(d.GetDigits()[0], value_greater_than_base % kBase);
+  EXPECT_EQ(d.GetDigits()[1], value_greater_than_base / kBase);
 }

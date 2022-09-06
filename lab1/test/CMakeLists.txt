@@ -18,9 +18,12 @@ add_executable(
 
 target_link_libraries(
         ${TEST_FILENAME}
+        GTest::gtest
         GTest::gtest_main
         bigint
 )
 
 include(GoogleTest)
-gtest_discover_tests(${TEST_FILENAME})
+gtest_discover_tests(
+        ${TEST_FILENAME}
+        )
