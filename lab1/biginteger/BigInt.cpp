@@ -68,7 +68,7 @@ BigInt::BigInt(std::string str) {
   for (int i = str.length() - 1; i >= left_bound; i -= kMaxDigitLen) {
     std::string tmp;
     if (i-left_bound < kMaxDigitLen) {
-      tmp = str.substr(left_bound,i- left_bound);
+      tmp = str.substr(left_bound,i- left_bound + 1);
     } else {
       tmp = str.substr(i-kMaxDigitLen+1,kMaxDigitLen);
     }

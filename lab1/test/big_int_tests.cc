@@ -24,3 +24,12 @@ TEST(ConstructorTest, IntConstructor) {
   EXPECT_EQ(d.GetDigits()[0], value_greater_than_base % kBase);
   EXPECT_EQ(d.GetDigits()[1], value_greater_than_base / kBase);
 }
+TEST(ConstructorTest,StringConstructor) {
+  std::string str = "-1234567890098765456789876543234567";
+  BigInt a(str);
+  std::stringstream ss;
+  std::string string_from_bigint;
+  ss<<a;
+  ss>>string_from_bigint;
+  EXPECT_EQ(str,string_from_bigint);
+}
