@@ -3,6 +3,10 @@
 //
 #include <BigInt.h>
 
+bool BigInt::IsSignNegative() { return is_negative; }
+
+std::vector<int> BigInt::GetDigits() { return digits; }
+
 BigInt::BigInt() {
   is_negative = false;
   digits.push_back(0);
@@ -18,10 +22,15 @@ BigInt::BigInt(int digit) {
   if (digit < kBase) {
     digits.push_back(digit);
   } else {
-    digits.push_back(digit/10);
-    digits.push_back(digit%10);
+    digits.push_back(digit / 10);
+    digits.push_back(digit % 10);
   }
 }
-BigInt::~BigInt() {
+
+
+
+BigInt::BigInt(std::string) {
 
 }
+
+BigInt::~BigInt() {}
